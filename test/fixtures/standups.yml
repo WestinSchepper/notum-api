@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: standups
+#
+#  id          :integer          not null, primary key
+#  did         :text
+#  doing       :text
+#  impediments :text
+#  project_id  :integer
+#  member_id   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
