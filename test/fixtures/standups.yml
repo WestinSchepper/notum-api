@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  did: MyText
+  doing: MyText
+  impediments: MyText
+  project: one
+  member: one
+
+two:
+  did: MyText
+  doing: MyText
+  impediments: MyText
+  project: two
+  member: two

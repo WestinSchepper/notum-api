@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :standups
   resources :projects do
     resources :members, only: [:index]
     member do
