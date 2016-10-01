@@ -38,6 +38,14 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
 
+  def members
+    render json: @project.members
+  end
+
+  def standups
+    render json: @project.standups
+  end
+
   # TODO: Prevent duplicate members in a single project.
   def add_member
     member = Member.find(params[:member_id])
