@@ -15,4 +15,9 @@
 class Standup < ApplicationRecord
   belongs_to :project
   belongs_to :member
+
+  def to_json(options={})
+     options[:except] ||= [:project_id, :member_id]
+     super(options)
+   end
 end

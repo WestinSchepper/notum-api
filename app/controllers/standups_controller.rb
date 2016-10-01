@@ -3,7 +3,7 @@ class StandupsController < ApplicationController
 
   # GET /standups/1
   def show
-    render json: @standup
+    render json: @standup.to_json(:include => [:project, :member])
   end
 
   # POST /standups
@@ -19,7 +19,7 @@ class StandupsController < ApplicationController
 
   # PATCH/PUT /standups/1
   def update
-    if @standup.update(standup_params)
+    if @standup.update(update_standup_params)
       render json: @standup
     else
       render json: @standup.errors, status: :unprocessable_entity
@@ -42,7 +42,11 @@ class StandupsController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def standup_params
+    def create_standup_params
       params.require(:standup).permit(:did, :doing, :impediments, :project_id, :member_id)
+    end
+
+    def update_standup_params
+      params.require(:standup).permit(:did, :doing, :impediments)
     end
 end
