@@ -1,11 +1,10 @@
 class StandupsController < ApplicationController
   before_action :set_standup, only: [:show, :update, :destroy]
+  before_action :set_project, only: [:index]
 
   # GET /standups
   def index
-    @standups = Standup.all
-
-    render json: @standups
+    render json: @project.standups
   end
 
   # GET /standups/1
@@ -42,6 +41,10 @@ class StandupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_standup
       @standup = Standup.find(params[:id])
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
     end
 
     # Only allow a trusted parameter "white list" through.
