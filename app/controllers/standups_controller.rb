@@ -1,11 +1,5 @@
 class StandupsController < ApplicationController
   before_action :set_standup, only: [:show, :update, :destroy]
-  before_action :set_project, only: [:index]
-
-  # GET /standups
-  def index
-    render json: @project.standups
-  end
 
   # GET /standups/1
   def show
