@@ -38,10 +38,12 @@ class MembersController < ApplicationController
     @member.destroy
   end
 
+  # GET /members/1/projects
   def projects
     render json: @member.projects
   end
 
+  # GET /members/1/standups
   def standups
     render json: @member.standups.to_json(:include => [:project])
   end

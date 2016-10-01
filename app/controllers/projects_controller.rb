@@ -38,15 +38,18 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
 
+  # GET /projects/1/members
   def members
     render json: @project.members
   end
 
+  # GET /projects/1/standups
   def standups
     render json: @project.standups
   end
 
   # TODO: Prevent duplicate members in a single project.
+  # POST /projects/1/add_member
   def add_member
     member = Member.find(params[:member_id])
     # TODO: Figure out how this bitwise operator works and other ways to add the new member to the project.
@@ -59,6 +62,7 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # POST /projects/1/remove_member
   def remove_member
     if @project.members.destroy(params[:member_id])
       render json: @project.to_json(:include => [:members])
