@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, except: [:create, :update]
+  before_action :set_project, except: [:index, :create, :update]
 
   # GET /projects
   def index
