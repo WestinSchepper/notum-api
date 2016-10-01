@@ -1,10 +1,11 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :update, :destroy]
-  before_action :set_project, only: [:index]
+  before_action :set_member, except: [:index, :create]
 
   # GET /members
   def index
-    render json: @project.members
+    @members = Member.all
+
+    render json: @members
   end
 
   # GET /members/1
@@ -37,14 +38,14 @@ class MembersController < ApplicationController
     @member.destroy
   end
 
+  def projects
+    render json: @member.projects
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
       @member = Member.find(params[:id])
-    end
-
-    def set_project
-      @project = Project.find(params[:project_id])
     end
 
     # Only allow a trusted parameter "white list" through.
