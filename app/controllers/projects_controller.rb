@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def delete_member
+  def remove_member
     if @project.members.destroy(params[:member_id])
       render json: @project.to_json(:include => [:members])
     else

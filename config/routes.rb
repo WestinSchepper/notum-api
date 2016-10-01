@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       post 'add_member'
-      post 'delete_member'
+      post 'remove_member'
       get 'members'
       get 'standups'
     end
