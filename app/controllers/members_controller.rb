@@ -42,6 +42,10 @@ class MembersController < ApplicationController
     render json: @member.projects
   end
 
+  def standups
+    render json: @member.standups.to_json(:include => [:project])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member

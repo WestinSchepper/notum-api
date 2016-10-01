@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :members, only: [:index, :create, :show, :update, :destroy] do
     member do
       get 'projects'
+      get 'standups'
     end
   end
   resources :standups, only: [:create, :show, :update, :destroy]
