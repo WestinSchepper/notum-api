@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    render json: @project.to_json(:include => [:members])
+    render json: @project.to_json(:include => [:members, :standups])
   end
 
   # POST /projects
