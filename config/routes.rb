@@ -8,12 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :members, only: [:index, :create, :show, :update, :destroy] do
+  resources :members do
     member do
       get 'projects'
       get 'standups'
     end
   end
-  resources :standups, only: [:create, :show, :update, :destroy]
+  resources :standups, except: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
