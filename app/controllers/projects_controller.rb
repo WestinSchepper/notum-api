@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
 
+  # TODO: Prevent duplicate members in a single project.
   def add_member
     member = Member.find(params[:member_id])
     # TODO: Figure out how this bitwise operator works and other ways to add the new member to the project.
