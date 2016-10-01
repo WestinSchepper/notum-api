@@ -8,7 +8,7 @@ class StandupsController < ApplicationController
 
   # POST /standups
   def create
-    @standup = Standup.new(standup_params)
+    @standup = Standup.new(create_standup_params)
 
     if @standup.save
       render json: @standup, status: :created, location: @standup
