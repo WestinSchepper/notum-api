@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/standups
   def standups
-    render json: @project.standups
+    render json: @project.standups.to_json(:include => [:member])
   end
 
   # TODO: Prevent duplicate members in a single project.
