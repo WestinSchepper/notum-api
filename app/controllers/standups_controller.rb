@@ -3,7 +3,7 @@ class StandupsController < ApplicationController
 
   # GET /standups/1
   def show
-    render json: @standup.to_json(:include => [:project, :member])
+    render json: @standup
   end
 
   # POST /standups
