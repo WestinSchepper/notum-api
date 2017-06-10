@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:name, member_ids: [])
     end
 
     def add_member_params
